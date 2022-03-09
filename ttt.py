@@ -57,8 +57,7 @@ async def place(ctx, *, pos: int):
     global gameOver
     global player_turn
 
-    checkWinner(winningConditions) # various wrong input checks
-    if gameOver:
+    if gameOver: # various wrong input checks
         await ctx.send("There is no game in progress. Please use the **!tictactoe** command to start a new game.")
         return
     if ctx.author not in [player1, player2]:
