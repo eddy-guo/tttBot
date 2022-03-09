@@ -29,6 +29,9 @@ async def tictactoe(ctx, *, p2: discord.Member):
         if ctx.author == p2:
             await ctx.send("Sorry, you cannot play with yourself.")
             return
+        elif p2.bot:
+            await ctx.send("Sorry, you cannot play with a bot.")
+            return
         board = [":white_large_square:", ":white_large_square:", ":white_large_square:",
                 ":white_large_square:", ":white_large_square:", ":white_large_square:",
                 ":white_large_square:", ":white_large_square:", ":white_large_square:"]
