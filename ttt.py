@@ -1,4 +1,4 @@
-import os, discord, random, pdb # pdb.set_trace()
+import os, discord, random, pdb
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -37,7 +37,7 @@ async def tictactoe(ctx, *, p2: discord.Member):
                 ":white_large_square:", ":white_large_square:", ":white_large_square:"]
         makeBoard(board)
         await ctx.send(temp_board)
-        gameOver = False # reset global vars
+        gameOver = False
         count = 0
         player_num = random.randint(1, 2)
         if player_num == 1:
@@ -49,10 +49,10 @@ async def tictactoe(ctx, *, p2: discord.Member):
 
 @bot.command()
 async def place(ctx, *, pos: int):
-    # needed to bring in values from p1 and p2 in previous function
+    # bring in values from p1 and p2 in previous function
     global player1
     global player2
-    # needed because these variables have their values changed (not only used)
+    # variables values will be changed
     global count
     global gameOver
     global player_turn
@@ -91,7 +91,7 @@ async def place(ctx, *, pos: int):
         await ctx.send("Tie game! :necktie:")
         return
     
-    if player1 in player_turn:
+    if player1 in player_turn: # if no winner, change turns
         if player_turn[player1] == ":regional_indicator_x:":
             player_turn = {player2: ":o2:"}
         elif player_turn[player1] == ":o2:":
